@@ -40,8 +40,10 @@
 #define WARNING		19			/* Warnings.  NOTICE is for expected messages
 								 * like implicit sequence creation by SERIAL.
 								 * WARNING is for unexpected messages. */
+#ifndef WIN32
 #define ERROR		20			/* user error - abort transaction; return to
 								 * known state */
+#endif
 /* Save ERROR value in PGERROR so it can be restored when Win32 includes
  * modify it.  We have to use a constant rather than ERROR because macros
  * are expanded only when referenced outside macros.

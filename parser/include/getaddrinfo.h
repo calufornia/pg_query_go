@@ -23,7 +23,12 @@
 #define GETADDRINFO_H
 
 #include <sys/socket.h>
+
+#ifdef WIN32
+#include <winsock2.h>
+#else
 #include <netdb.h>
+#endif
 
 
 /* Various macros that ought to be in <netdb.h>, but might not be */

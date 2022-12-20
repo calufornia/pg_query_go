@@ -116,8 +116,7 @@ extern void ProcessInterrupts(void);
 /* Service interrupt, if one is pending and it's safe to service it now */
 #define CHECK_FOR_INTERRUPTS() \
 do { \
-	if (INTERRUPTS_PENDING_CONDITION()) \
-		ProcessInterrupts(); \
+    1; \
 } while(0)
 
 /* Is ProcessInterrupts() guaranteed to clear InterruptPending? */

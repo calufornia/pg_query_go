@@ -74,13 +74,23 @@
 #include <unistd.h>
 #include <signal.h>
 #include <time.h>
+
+#ifndef WIN32
 #include <sys/wait.h>
+#endif
+
 #include <ctype.h>
 #include <sys/stat.h>
 #include <sys/socket.h>
 #include <fcntl.h>
 #include <sys/param.h>
+
+#ifdef WIN32
+#include <winsock2.h>
+#else
 #include <netdb.h>
+#endif
+
 #include <limits.h>
 
 #ifdef HAVE_SYS_SELECT_H

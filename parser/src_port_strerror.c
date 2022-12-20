@@ -53,7 +53,7 @@ pg_strerror_r(int errnum, char *buf, size_t buflen)
 #ifdef WIN32
 	/* Winsock error code range, per WinError.h */
 	if (errnum >= 10000 && errnum <= 11999)
-		return win32_socket_strerror(errnum, buf, buflen);
+		return "";
 #endif
 
 	/* Try the platform's strerror_r(), or maybe just strerror() */
@@ -172,8 +172,10 @@ get_errno_symbol(int errnum)
 		case EHOSTUNREACH:
 			return "EHOSTUNREACH";
 #endif
+#ifdef EIDRM
 		case EIDRM:
 			return "EIDRM";
+#endif
 		case EINPROGRESS:
 			return "EINPROGRESS";
 		case EINTR:

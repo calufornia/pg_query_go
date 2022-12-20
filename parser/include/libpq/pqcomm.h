@@ -17,11 +17,16 @@
 #define PQCOMM_H
 
 #include <sys/socket.h>
-#include <netdb.h>
 #ifdef HAVE_SYS_UN_H
 #include <sys/un.h>
 #endif
+
+#ifdef WIN32
+#include <winsock2.h>
+#else
 #include <netinet/in.h>
+#include <netdb.h>
+#endif
 
 #ifdef HAVE_STRUCT_SOCKADDR_STORAGE
 

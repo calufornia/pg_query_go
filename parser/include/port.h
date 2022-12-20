@@ -15,20 +15,11 @@
 
 #include <ctype.h>
 
-#ifdef __MINGW64_VERSION_MAJOR
+#ifdef WIN32
 #include <winsock2.h>
 #else
 #include <netdb.h>
 #endif
-
-struct passwd {
-  char *pw_name;
-  uid_t pw_uid;
-  gid_t pw_gid;
-  char *pw_dir;
-  char *pw_shell;
-  char *pw_passwd;
-};
 
 /*
  * Windows has enough specialized port stuff that we push most of it off
@@ -41,6 +32,7 @@ struct passwd {
 
 /* socket has a different definition on WIN32 */
 #ifndef WIN32
+#include <pwd.h>
 typedef int pgsocket;
 
 #define PGINVALID_SOCKET (-1)
