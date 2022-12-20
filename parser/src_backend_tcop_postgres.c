@@ -36,7 +36,13 @@
 #include <limits.h>
 #include <signal.h>
 #include <unistd.h>
+
+#ifdef WIN32
+#include <winsock2.h>
+#else
 #include <sys/socket.h>
+#endif
+
 #ifdef HAVE_SYS_SELECT_H
 #include <sys/select.h>
 #endif

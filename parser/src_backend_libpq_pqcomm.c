@@ -77,26 +77,19 @@
 #include <signal.h>
 #include <fcntl.h>
 
-#ifndef WIN32
+#ifdef WIN32
+#include <winsock2.h>
+#else
 #include <grp.h>
+#include <sys/socket.h>
+#include <netdb.h>
+#include <netinet/in.h>
 #endif
 
 #include <unistd.h>
 #include <sys/file.h>
-#include <sys/socket.h>
 #include <sys/stat.h>
 #include <sys/time.h>
-#ifdef WIN32
-#include <winsock2.h>
-#else
-#include <netdb.h>
-#endif
-
-#ifdef WIN32
-#include <winsock2.h>
-#else
-#include <netinet/in.h>
-#endif
 
 #ifdef HAVE_NETINET_TCP_H
 #include <netinet/tcp.h>

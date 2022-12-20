@@ -75,13 +75,15 @@
 #include <signal.h>
 #include <time.h>
 
-#ifndef WIN32
+#ifdef WIN32
+#include <winsock2.h>
+#else
 #include <sys/wait.h>
+#include <sys/socket.h>
 #endif
 
 #include <ctype.h>
 #include <sys/stat.h>
-#include <sys/socket.h>
 #include <fcntl.h>
 #include <sys/param.h>
 
