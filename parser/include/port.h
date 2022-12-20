@@ -21,15 +21,6 @@
 #include <netdb.h>
 #endif
 
-/*
- * Windows has enough specialized port stuff that we push most of it off
- * into another file.
- * Note: Some CYGWIN includes might #define WIN32.
- */
-#if defined(WIN32) && !defined(__CYGWIN__)
-#include "port/win32_port.h"
-#endif
-
 /* socket has a different definition on WIN32 */
 #ifndef WIN32
 #include <pwd.h>
