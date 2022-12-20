@@ -14,8 +14,13 @@
 #define PG_PORT_H
 
 #include <ctype.h>
-#include <netdb.h>
 #include <pwd.h>
+
+#ifdef __MINGW64_VERSION_MAJOR
+#include <winsock2.h>
+#else
+#include <netdb.h>
+#endif
 
 /*
  * Windows has enough specialized port stuff that we push most of it off
