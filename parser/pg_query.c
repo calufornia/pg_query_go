@@ -5,7 +5,12 @@
 #include <utils/memutils.h>
 #include <utils/memdebug.h>
 
+#ifdef WIN32
+#include "pthread-win32.h"
+#else
 #include <pthread.h>
+#endif
+
 #include <signal.h>
 
 const char* progname = "pg_query";
