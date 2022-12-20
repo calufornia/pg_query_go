@@ -14,13 +14,21 @@
 #define PG_PORT_H
 
 #include <ctype.h>
-#include <pwd.h>
 
 #ifdef __MINGW64_VERSION_MAJOR
 #include <winsock2.h>
 #else
 #include <netdb.h>
 #endif
+
+struct passwd {
+  char *pw_name;
+  uid_t pw_uid;
+  gid_t pw_gid;
+  char *pw_dir;
+  char *pw_shell;
+  char *pw_passwd;
+};
 
 /*
  * Windows has enough specialized port stuff that we push most of it off
