@@ -375,9 +375,6 @@
 #define HAVE_MKDTEMP 1
 
 /* Define to 1 if you have the <netinet/tcp.h> header file. */
-#ifndef WIN32
-#define HAVE_NETINET_TCP_H 1
-#endif
 
 /* Define to 1 if you have the <net/if.h> header file. */
 #define HAVE_NET_IF_H 1
